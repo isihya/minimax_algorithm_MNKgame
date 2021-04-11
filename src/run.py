@@ -3,10 +3,11 @@ from gametree import GameTree
 from player import Player
 from enemy import Enemy
 from minimax_algorithm import Minimax_algorithm
+import argparse
 
 
-def main():
-    game = MNKgame()
+def main(m, n, k, depth_lim):
+    game = MNKgame(m=m, n=n, k=k)
     gametree = GameTree(game)
     minimax_algorithm = Minimax_algorithm(game, gametree)
     me = Player(game, gametree, 1)
@@ -32,4 +33,15 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description='MNKgame')
+    parser.add_argument('--m', type=int, default=3,
+                        help='width of board')
+    parser.add_argument('--n', type=int, default=3,
+                        help='height of board')
+    parser.add_argument('--k', type=int, default=3,
+                        help='player who first gets'
+                             'k stones in a row will win')
+    parser.add_argument('--l', type=int, default=5,
+                        help='depth whih enemy will explore')
+    args = parser.parse_args()
+    main(args.m, args.n, args.k, args.l)

@@ -1,12 +1,14 @@
 
 
 class Minimax_algorithm:
-    def __init__(self, game, gametree):
+    def __init__(self, game, gametree, depth_lim=-1):
         self.game = game
         self.gametree = gametree
+        self.depth_lim = depth_lim
 
     def select_action(self, val):
-        self.explore(self.game.field, val, val == 1)
+        self.explore(self.game.field, val, val == 1,
+                     depth_lim=self.depth_lim)
         actions = self.game.get_actions(self.game.field)
         if len(actions) == 0:
             return []
@@ -20,19 +22,21 @@ class Minimax_algorithm:
     def explore(self, field, val, is_my_turn: bool, depth_lim=-1):
         """explore game tree, depth_lim == -1 indicates no limit
         """
-        # evaluate current field
-        score = self.game.evaluate(field)
-        self.gametree.tree[field.tostring()].value = score
-        # return if already had estimation
-        if score != 0:
-            return score
+        # return if already visited
+        if self.gametree.tree[field.tostring()].value is not None:
+            return self.gametree.tree[field.tostring()].value
         # get possible actions from current field
         actions = self.game.get_actions(field)
         # if reached limit of explore, return current score
         if depth_lim == 0 or len(actions) == 0:
+            score = self.game.evaluate(field)
             return score
         # get child fields
         children = self.gametree.get_children(field, actions, val)
+        if is_my_turn:
+            score = -2
+        else:
+            score = 2
         for child in children:
             # if we have cached value of child, use it, else explore
             if self.gametree.tree[child.tostring()].value is not None:

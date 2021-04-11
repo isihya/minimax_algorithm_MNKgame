@@ -14,12 +14,14 @@ class Player:
     def receive_input(self):
         print("Please type next action")
         while True:
+            print("Type vertical pos")
             i = input()
             try:
                 i = int(i)
             except ValueError:
                 print("input should be int. Try again")
                 continue
+            print("Type horizontal pos")
             j = input()
             try:
                 j = int(j)
