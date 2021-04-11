@@ -11,7 +11,7 @@ optional arguments:
   -h, --help  show this help message and exit
   --m M       width of board
   --n N       height of board
-  --k K       player who first getsk stones in a row will win
+  --k K       player who first gets k stones in a row will win
   --l L       depth whih enemy will explore
 ```
 

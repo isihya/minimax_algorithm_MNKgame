@@ -39,7 +39,7 @@ if __name__ == "__main__":
     parser.add_argument('--n', type=int, default=3,
                         help='height of board')
     parser.add_argument('--k', type=int, default=3,
-                        help='player who first gets'
+                        help='player who first gets '
                              'k stones in a row will win')
     parser.add_argument('--l', type=int, default=5,
                         help='depth whih enemy will explore')
