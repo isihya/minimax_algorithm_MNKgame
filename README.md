@@ -15,5 +15,38 @@ optional arguments:
   --l L       depth whih enemy will explore
 ```
 
+## Demo
+
+For each turn, type pos of your stone (1 in board).
+You'll see enemy's feedback after that.
+
+```
+[[0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]]
+Please type next action
+Type vertical pos
+1
+Type horizontal pos
+1
+[[ 0.  0.  0.  0.  0.]
+ [ 0.  1.  0.  0.  0.]
+ [ 0.  0.  0. -1.  0.]
+ [ 0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.]]
+Please type next action
+Type vertical pos
+2
+Type horizontal pos
+2
+[[ 0.  0.  0.  0.  0.]
+ [ 0.  1.  0.  0.  0.]
+ [ 0.  0.  1. -1.  0.]
+ [ 0.  0.  0. -1.  0.]
+ [ 0.  0.  0.  0.  0.]]
+```
+
 ## How to run test
 `pytest -sv test`
