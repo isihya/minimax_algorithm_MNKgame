@@ -23,8 +23,8 @@ class Minimax_algorithm:
         """explore game tree, depth_lim == -1 indicates no limit
         """
         # return if already visited
-        if self.gametree.tree[field.tostring()].value is not None:
-            return self.gametree.tree[field.tostring()].value
+        # if self.gametree.tree[field.tostring()].value is not None:
+        #    return self.gametree.tree[field.tostring()].value
         # get possible actions from current field
         actions = self.game.get_actions(field)
         # if reached limit of explore, return current score

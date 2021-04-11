@@ -9,7 +9,8 @@ import argparse
 def main(m, n, k, depth_lim):
     game = MNKgame(m=m, n=n, k=k)
     gametree = GameTree(game)
-    minimax_algorithm = Minimax_algorithm(game, gametree)
+    minimax_algorithm = Minimax_algorithm(game, gametree,
+                                          depth_lim=depth_lim)
     me = Player(game, gametree, 1)
     enemy = Enemy(game, -1, policy=minimax_algorithm)
     turn = 0
